@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Conheça um curso online de Excel do básico ao avançado, com conteúdo prático para desenvolver suas habilidades em planilhas, fórmulas, funções e gráficos.">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#0b6b3a">
+  <title>Curso de Excel Online | Do Básico ao Avançado</title>
+
+  <style>
+    :root{
+      --green:#0b6b3a;
+      --green2:#11965a;
+      --dark:#0d1b16;
+      --ink:#17231e;
+      --muted:#617067;
+      --soft:#f3f8f5;
+      --line:#dfe9e3;
+      --white:#fff;
+      --shadow:0 18px 55px rgba(13,50,31,.12);
+      --radius:24px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+      color:var(--ink);
+      background:#fff;
+      line-height:1.6;
+    }
+    a{text-decoration:none;color:inherit}
+    .wrap{width:min(1120px,92%);margin:auto}
+    .topbar{
+      background:var(--dark);color:#dff6e9;text-align:center;
+      padding:9px 16px;font-size:14px
+    }
+    header{
+      position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);
+      backdrop-filter:blur(14px);border-bottom:1px solid rgba(223,233,227,.8)
+    }
+    nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{font-weight:900;font-size:21px;display:flex;align-items:center;gap:10px}
+    .logo{
+      width:38px;height:38px;border-radius:12px;background:linear-gradient(135deg,var(--green),#17b86d);
+      display:grid;place-items:center;color:#fff;font-weight:900;box-shadow:0 8px 20px rgba(11,107,58,.2)
+    }
+    .navlinks{display:flex;gap:24px;color:#526158;font-size:14px;font-weight:700}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:9px;
+      background:linear-gradient(135deg,var(--green),var(--green2));
+      color:#fff;font-weight:850;border:0;border-radius:14px;padding:15px 22px;
+      box-shadow:0 12px 28px rgba(11,107,58,.22);transition:.2s transform,.2s box-shadow;
+      cursor:pointer
+    }
+    .btn:hover{transform:translateY(-2px);box-shadow:0 16px 34px rgba(11,107,58,.28)}
+    .btn.light{background:#fff;color:var(--green);box-shadow:none;border:1px solid var(--line)}
+    .hero{
+      overflow:hidden;
+      background:
+        radial-gradient(circle at 90% 10%,rgba(27,188,111,.18),transparent 28%),
+        radial-gradient(circle at 10% 70%,rgba(11,107,58,.10),transparent 30%),
+        linear-gradient(180deg,#f9fcfa,#fff);
+      padding:82px 0 66px
+    }
+    .hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:56px;align-items:center}
+    .eyebrow{
+      display:inline-flex;gap:8px;align-items:center;background:#eaf8f0;color:var(--green);
+      border:1px solid #ccebd9;border-radius:999px;padding:7px 12px;font-size:13px;font-weight:850
+    }
+    h1{font-size:clamp(40px,5.4vw,68px);line-height:1.02;letter-spacing:-2.7px;margin:20px 0}
+    h1 span{color:var(--green)}
+    .lead{font-size:19px;color:var(--muted);max-width:670px;margin:0 0 28px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .micro{margin-top:15px;color:#708078;font-size:13px}
+    .excel-card{
+      background:var(--dark);border-radius:32px;padding:24px;box-shadow:var(--shadow);
+      transform:rotate(1.2deg);position:relative;color:#fff
+    }
+    .sheet{
+      background:#fff;color:#203027;border-radius:20px;overflow:hidden;transform:rotate(-1.2deg);
+      box-shadow:0 20px 50px rgba(0,0,0,.18)
+    }
+    .sheet-head{background:#e8f5ed;padding:15px 18px;display:flex;gap:7px;align-items:center}
+    .dot{width:10px;height:10px;border-radius:50%;background:#a9c8b6}
+    .formula{margin-left:10px;background:#fff;border:1px solid #cfe1d6;border-radius:7px;padding:4px 9px;font-size:12px;color:#42604f;flex:1}
+    .grid{display:grid;grid-template-columns:repeat(4,1fr)}
+    .cell{height:47px;border-right:1px solid #e7ece9;border-bottom:1px solid #e7ece9;padding:10px;font-size:12px}
+    .cell.h{background:#f5f8f6;font-weight:800;color:#587064}
+    .cell.good{background:#e8f8ef;color:#08713b;font-weight:850}
+    .floating{
+      position:absolute;right:-18px;bottom:28px;background:#fff;color:var(--ink);
+      padding:14px 17px;border-radius:16px;box-shadow:var(--shadow);font-size:13px;font-weight:800
+    }
+    .stats{padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .stat{text-align:center;padding:8px}
+    .stat strong{display:block;font-size:22px;color:var(--green)}
+    .stat span{font-size:13px;color:var(--muted)}
+    section{padding:86px 0}
+    .section-head{max-width:720px;margin:0 auto 42px;text-align:center}
+    .section-head h2{font-size:clamp(31px,4vw,46px);line-height:1.1;letter-spacing:-1.7px;margin:10px 0 14px}
+    .section-head p{color:var(--muted);margin:0}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{
+      border:1px solid var(--line);border-radius:var(--radius);padding:27px;background:#fff;
+      box-shadow:0 10px 35px rgba(18,60,37,.05)
+    }
+    .icon{
+      width:48px;height:48px;border-radius:14px;background:#eaf8f0;color:var(--green);
+      display:grid;place-items:center;font-size:22px;margin-bottom:18px
+    }
+    .card h3{margin:0 0 9px;font-size:19px}
+    .card p{margin:0;color:var(--muted);font-size:15px}
+    .soft{background:var(--soft)}
+    .learn-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .lesson{display:flex;gap:16px;background:#fff;border:1px solid var(--line);padding:21px;border-radius:18px}
+    .check{
+      min-width:30px;height:30px;border-radius:50%;background:#dff5e8;color:var(--green);
+      display:grid;place-items:center;font-weight:900
+    }
+    .lesson strong{display:block;margin-bottom:3px}
+    .lesson span{color:var(--muted);font-size:14px}
+    .audience{display:grid;grid-template-columns:1fr 1fr;gap:42px;align-items:center}
+    .audience h2{font-size:42px;line-height:1.1;letter-spacing:-1.5px;margin:0 0 18px}
+    .ticks{display:grid;gap:13px;margin:24px 0}
+    .tick{display:flex;gap:11px;align-items:flex-start;color:#425249}
+    .panel{
+      background:linear-gradient(145deg,var(--dark),#153c2a);color:#fff;padding:34px;border-radius:28px;
+      box-shadow:var(--shadow)
+    }
+    .panel h3{font-size:27px;margin:0 0 12px}
+    .panel p{color:#c9ddd1}
+    .faq{max-width:850px;margin:auto;display:grid;gap:12px}
+    details{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 20px}
+    summary{font-weight:800;cursor:pointer}
+    details p{color:var(--muted);margin:12px 0 0}
+    .cta{
+      background:
+        radial-gradient(circle at 80% 20%,rgba(51,214,135,.23),transparent 30%),
+        var(--dark);
+      color:#fff;border-radius:32px;padding:50px;text-align:center
+    }
+    .cta h2{font-size:clamp(32px,4vw,48px);line-height:1.1;margin:0 auto 15px;max-width:760px}
+    .cta p{color:#cce0d4;max-width:680px;margin:0 auto 25px}
+    footer{padding:36px 0;color:#718077;font-size:13px}
+    .footer-grid{display:flex;justify-content:space-between;gap:20px;align-items:flex-start}
+    .disclaimer{max-width:760px}
+    .mobile-cta{display:none}
+    @media(max-width:860px){
+      .navlinks{display:none}
+      .hero{padding:55px 0 45px}
+      .hero-grid,.audience{grid-template-columns:1fr}
+      .hero-grid{gap:38px}
+      h1{letter-spacing:-1.8px}
+      .excel-card{max-width:620px;margin:auto}
+      .stats-grid{grid-template-columns:repeat(2,1fr)}
+      .cards{grid-template-columns:1fr}
+      .learn-grid{grid-template-columns:1fr}
+      .audience h2{font-size:35px}
+      section{padding:65px 0}
+      .cta{padding:38px 22px}
+      .footer-grid{flex-direction:column}
+    }
+    @media(max-width:560px){
+      nav .btn{display:none}
+      nav{height:64px}
+      .hero-actions .btn{width:100%}
+      .floating{right:8px;bottom:14px}
+      .stats-grid{grid-template-columns:1fr 1fr}
+      .stat strong{font-size:18px}
+      .mobile-cta{
+        display:block;position:fixed;z-index:30;left:12px;right:12px;bottom:12px
+      }
+      footer{padding-bottom:95px}
+    }
+
+    .conversion-band{background:#07130e;color:#fff}
+    .conversion-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+    .conversion-grid h2{font-size:clamp(34px,4vw,50px);line-height:1.08;letter-spacing:-1.7px;margin:16px 0}
+    .conversion-grid p{color:#bdd0c5;font-size:17px}
+    .conversion-box{background:#10271c;border:1px solid #234433;border-radius:26px;padding:28px;display:grid;gap:14px}
+    .conversion-item{display:flex;gap:15px;align-items:center;background:#163326;border-radius:16px;padding:16px}
+    .conversion-item>span{width:38px;height:38px;border-radius:11px;background:#dff5e8;color:#0b6b3a;display:grid;place-items:center;font-weight:900}
+    .conversion-item strong,.conversion-item small{display:block}
+    .conversion-item small{color:#abc3b5;margin-top:2px}
+    .full{width:100%;margin-top:5px}
+    .proof-toast{position:fixed;left:18px;bottom:18px;z-index:40;background:#fff;border:1px solid var(--line);box-shadow:0 16px 45px rgba(0,0,0,.16);border-radius:17px;padding:14px 16px;max-width:340px;display:flex;gap:12px;align-items:center;opacity:0;transform:translateY(20px);pointer-events:none;transition:.35s}
+    .proof-toast.show{opacity:1;transform:translateY(0)}
+    .proof-badge{min-width:42px;height:42px;border-radius:13px;background:#e7f7ee;color:var(--green);display:grid;place-items:center;font-weight:900}
+    .proof-toast strong{display:block;font-size:14px}
+    .proof-toast span{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+    @media(max-width:860px){.conversion-grid{grid-template-columns:1fr}}
+    @media(max-width:560px){.proof-toast{left:12px;right:12px;bottom:78px;max-width:none}}
+
+
+    .rating-strip{background:#fff8e7;border-top:1px solid #f2e2b6;border-bottom:1px solid #f2e2b6;padding:17px 0}
+    .rating-inner{display:flex;justify-content:center;align-items:center;gap:14px;flex-wrap:wrap;text-align:center}
+    .stars{letter-spacing:2px;font-size:20px;color:#e7a600}
+    .rating-inner strong{font-size:18px}
+    .rating-inner span{font-size:13px;color:var(--muted)}
+    .pain-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:35px}
+    .pain-card{border-radius:24px;padding:28px;border:1px solid var(--line)}
+    .pain-card.before{background:#fff8f6}
+    .pain-card.after{background:#effaf4;border-color:#cdebd9}
+    .pain-card h3{font-size:23px;margin:0 0 18px}
+    .pain-list{display:grid;gap:13px}
+    .pain-row{display:flex;gap:11px;align-items:flex-start}
+    .badmark,.goodmark{min-width:27px;height:27px;border-radius:50%;display:grid;place-items:center;font-weight:900}
+    .badmark{background:#ffe5df;color:#a83d2b}
+    .goodmark{background:#d9f5e5;color:#08713b}
+    .inline-cta{margin-top:28px;text-align:center;padding:26px;border-radius:22px;background:#f2f9f5;border:1px solid #d8eade}
+    .inline-cta strong{font-size:21px;display:block;margin-bottom:12px}
+    .trustbox{display:grid;grid-template-columns:.8fr 1.2fr;gap:28px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:28px;padding:34px;box-shadow:var(--shadow)}
+    .score{text-align:center;border-right:1px solid var(--line)}
+    .score .big{font-size:64px;line-height:1;font-weight:950;color:var(--dark)}
+    .score .stars{font-size:24px;margin:9px 0}
+    .score small{color:var(--muted)}
+    .trustcopy h3{font-size:29px;margin:0 0 10px}
+    .trustcopy p{color:var(--muted);margin:0 0 17px}
+    .sticky-sale{position:fixed;z-index:35;right:18px;bottom:18px;background:var(--dark);color:#fff;border-radius:18px;padding:12px 14px 12px 16px;box-shadow:0 16px 45px rgba(0,0,0,.22);display:flex;align-items:center;gap:14px;max-width:440px}
+    .sticky-sale strong{display:block;font-size:13px}
+    .sticky-sale small{color:#bcd1c4;display:block}
+    .sticky-sale .btn{padding:11px 15px;font-size:13px;white-space:nowrap}
+    .pulse{animation:pulse 1.8s infinite}
+    @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.035)}}
+    @media(max-width:860px){.pain-grid,.trustbox{grid-template-columns:1fr}.score{border-right:0;border-bottom:1px solid var(--line);padding-bottom:25px}}
+    @media(max-width:560px){.sticky-sale{display:none}.rating-inner{gap:6px}.trustbox{padding:25px}.pain-grid{grid-template-columns:1fr}}
+
+
+    .hero-proof{display:flex;align-items:center;gap:10px;margin:18px 0 0;flex-wrap:wrap}
+    .hero-proof .stars{font-size:17px}.hero-proof b{font-size:14px}.hero-proof small{color:var(--muted)}
+    .action-note{display:flex;gap:10px;align-items:center;margin-top:14px;font-size:13px;font-weight:750;color:#425249}
+    .action-dot{width:9px;height:9px;border-radius:50%;background:#15a961;box-shadow:0 0 0 6px rgba(21,169,97,.12)}
+    .objection-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .objection{padding:26px;border-radius:22px;background:#fff;border:1px solid var(--line)}
+    .objection .q{font-weight:900;font-size:18px;margin-bottom:8px}
+    .objection p{color:var(--muted);font-size:14px;margin:0}
+    .decision{background:linear-gradient(135deg,#07130e,#123b28);color:#fff;border-radius:30px;padding:45px;display:grid;grid-template-columns:1fr auto;gap:35px;align-items:center}
+    .decision h2{font-size:clamp(30px,4vw,46px);line-height:1.08;margin:0 0 12px;letter-spacing:-1.5px}
+    .decision p{color:#c4d7cc;margin:0;max-width:680px}
+    .decision .btn{font-size:17px;padding:18px 25px}
+    .mini-trust{display:flex;justify-content:center;gap:22px;flex-wrap:wrap;margin-top:16px;color:#c4d7cc;font-size:12px}
+    .mobile-cta-wrap{display:none}
+    .exit-modal{position:fixed;inset:0;z-index:100;background:rgba(4,12,8,.72);backdrop-filter:blur(6px);display:none;place-items:center;padding:18px}
+    .exit-modal.open{display:grid}
+    .exit-card{width:min(560px,100%);background:#fff;border-radius:28px;padding:34px;box-shadow:0 25px 80px rgba(0,0,0,.3);position:relative;text-align:center}
+    .exit-close{position:absolute;right:14px;top:12px;border:0;background:#eef4f0;width:34px;height:34px;border-radius:50%;font-size:20px;cursor:pointer}
+    .exit-card h2{font-size:34px;line-height:1.05;letter-spacing:-1px;margin:12px 0}
+    .exit-card p{color:var(--muted)}
+    .exit-card .btn{width:100%;margin-top:8px}
+    .exit-card small{display:block;color:#7a887f;margin-top:12px}
+    @media(max-width:860px){.objection-grid{grid-template-columns:1fr}.decision{grid-template-columns:1fr;text-align:center}}
+    @media(max-width:560px){
+      .mobile-cta{display:none!important}
+      .mobile-cta-wrap{display:block;position:fixed;z-index:60;left:0;right:0;bottom:0;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);padding:9px 12px 10px;border-top:1px solid var(--line);box-shadow:0 -8px 30px rgba(0,0,0,.09)}
+      .mobile-cta-wrap .btn{width:100%;padding:14px}
+      .mobile-cta-wrap small{display:block;text-align:center;font-size:10px;color:var(--muted);margin-top:4px}
+      .exit-card{padding:28px 20px}.exit-card h2{font-size:29px}
+    }
+
+
+    .reviews-wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}
+    .review-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:0 10px 30px rgba(13,50,31,.06)}
+    .review-top{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+    .avatar{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#dff5e8,#bfe8d0);color:var(--green);display:grid;place-items:center;font-weight:950}
+    .review-name{font-weight:900}.review-label{font-size:11px;color:#7a887f;display:block}
+    .review-card .stars{font-size:15px;margin:7px 0}
+    .review-card p{color:#53635a;font-size:14px;margin:0;font-style:italic}
+    .illustrative-note{margin:20px auto 0;max-width:800px;text-align:center;color:#748178;font-size:12px}
+    @media(max-width:860px){.reviews-wrap{grid-template-columns:1fr}}
+
+  </style>
+</head>
+
+<body>
+  <div class="topbar">Conteúdo online • Estude no seu ritmo</div>
+
+  <header>
+    <div class="wrap">
+      <nav>
+        <a class="brand" href="#">
+          <span class="logo">X</span>
+          Excel na Prática
+        </a>
+        <div class="navlinks">
+          <a href="#beneficios">Benefícios</a>
+          <a href="#conteudo">Conteúdo</a>
+          <a href="#para-quem">Para quem é</a>
+          <a href="#faq">Dúvidas</a>
+        </div>
+        <a class="btn affiliate-link" href="#" rel="nofollow sponsored">Quero aprender Excel →</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow">✓ Curso online de Excel</span>
+          <h1>Pare de perder tempo no <span>Excel.</span><br>Aprenda de verdade.</h1>
+          <p class="lead">
+            Do básico ao avançado: aprenda planilhas, fórmulas, funções, gráficos e recursos avançados em um treinamento online estruturado para você evoluir passo a passo.
+          </p>
+          <div class="hero-actions">
+            <a class="btn affiliate-link" href="#" rel="nofollow sponsored">Quero conhecer o curso →</a>
+            <a class="btn light" href="#conteudo">Ver o que vou aprender</a>
+          </div>
+          <p class="micro">Você será direcionado à página oficial da oferta para consultar preço e condições atuais.</p>
+          <div class="hero-proof">
+            <span class="stars">★★★★★</span>
+            <b>4,8/5 na Hotmart*</b>
+            <small>avaliação pública da oferta</small>
+          </div>
+          <div class="action-note"><span class="action-dot"></span> Veja agora o conteúdo completo antes de decidir.</div>
+        </div>
+
+        <div class="excel-card" aria-label="Ilustração de uma planilha">
+          <div class="sheet">
+            <div class="sheet-head">
+              <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+              <span class="formula">=SE(META&gt;=100%;"Meta atingida";"Em andamento")</span>
+            </div>
+            <div class="grid">
+              <div class="cell h">Mês</div><div class="cell h">Vendas</div><div class="cell h">Meta</div><div class="cell h">Status</div>
+              <div class="cell">Jan</div><div class="cell">128</div><div class="cell">100</div><div class="cell good">Atingida</div>
+              <div class="cell">Fev</div><div class="cell">114</div><div class="cell">100</div><div class="cell good">Atingida</div>
+              <div class="cell">Mar</div><div class="cell">137</div><div class="cell">120</div><div class="cell good">Atingida</div>
+              <div class="cell">Abr</div><div class="cell">—</div><div class="cell">130</div><div class="cell">Em andamento</div>
+            </div>
+          </div>
+          <div class="floating">📊 Planilhas • Fórmulas • Gráficos</div>
+        </div>
+      </div>
+    </section>
+
+
+    <div class="rating-strip">
+      <div class="wrap rating-inner">
+        <span class="stars">★★★★★</span>
+        <strong>4,8/5 na Hotmart</strong>
+        <span>Avaliação exibida publicamente na plataforma • consulte a página oficial para dados atuais</span>
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="wrap stats-grid">
+        <div class="stat"><strong>Online</strong><span>Estude onde estiver</span></div>
+        <div class="stat"><strong>Vitalício*</strong><span>Acesso informado na oferta</span></div>
+        <div class="stat"><strong>Certificado*</strong><span>Conforme condições do curso</span></div>
+        <div class="stat"><strong>Prático</strong><span>Do básico ao avançado</span></div>
+      </div>
+    </div>
+
+    <section id="beneficios">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Por que aprender Excel?</span>
+          <h2>Transforme dados em informações que fazem sentido.</h2>
+          <p>Construa uma base sólida e avance para recursos que ajudam a organizar, analisar e apresentar informações.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="icon">ƒx</div>
+            <h3>Fórmulas e funções</h3>
+            <p>Aprenda a trabalhar com cálculos e funções para automatizar tarefas e reduzir trabalho manual.</p>
+          </article>
+          <article class="card">
+            <div class="icon">▥</div>
+            <h3>Organização de dados</h3>
+            <p>Estruture planilhas de maneira mais clara para consultar e trabalhar com informações no dia a dia.</p>
+          </article>
+          <article class="card">
+            <div class="icon">↗</div>
+            <h3>Gráficos e análises</h3>
+            <p>Visualize informações de forma mais objetiva e apresente resultados com maior clareza.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Chega de improvisar</span>
+          <h2>O Excel pode deixar de ser um obstáculo e virar uma ferramenta.</h2>
+          <p>O objetivo é sair do “não sei fazer” e construir domínio progressivo sobre tarefas que aparecem no dia a dia.</p>
+        </div>
+        <div class="pain-grid">
+          <div class="pain-card before">
+            <h3>Sem domínio do Excel</h3>
+            <div class="pain-list">
+              <div class="pain-row"><span class="badmark">×</span><span>Perder tempo procurando como fazer cada fórmula.</span></div>
+              <div class="pain-row"><span class="badmark">×</span><span>Depender de outras pessoas para ajustar planilhas.</span></div>
+              <div class="pain-row"><span class="badmark">×</span><span>Ter dificuldade para organizar grandes quantidades de informação.</span></div>
+              <div class="pain-row"><span class="badmark">×</span><span>Evitar recursos mais avançados por falta de base.</span></div>
+            </div>
+          </div>
+          <div class="pain-card after">
+            <h3>Desenvolvendo domínio</h3>
+            <div class="pain-list">
+              <div class="pain-row"><span class="goodmark">✓</span><span>Entender melhor fórmulas e funções.</span></div>
+              <div class="pain-row"><span class="goodmark">✓</span><span>Organizar planilhas com mais segurança.</span></div>
+              <div class="pain-row"><span class="goodmark">✓</span><span>Criar gráficos para interpretar informações.</span></div>
+              <div class="pain-row"><span class="goodmark">✓</span><span>Construir uma base para avançar na ferramenta.</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="inline-cta">
+          <strong>Você não precisa continuar aprendendo Excel por tentativa e erro.</strong>
+          <a class="btn affiliate-link pulse" href="#" rel="nofollow sponsored">Quero ver o treinamento →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft" id="conteudo">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Conteúdo</span>
+          <h2>Do primeiro contato aos recursos avançados.</h2>
+          <p>Uma jornada para desenvolver competências úteis no uso cotidiano do Excel.</p>
+        </div>
+
+        <div class="learn-grid">
+          <div class="lesson"><span class="check">✓</span><div><strong>Fundamentos do Excel</strong><span>Interface, células, linhas, colunas e organização de planilhas.</span></div></div>
+          <div class="lesson"><span class="check">✓</span><div><strong>Fórmulas e funções</strong><span>Recursos para cálculos, tratamento e análise de informações.</span></div></div>
+          <div class="lesson"><span class="check">✓</span><div><strong>Formatação de planilhas</strong><span>Melhore a leitura e a apresentação dos seus dados.</span></div></div>
+          <div class="lesson"><span class="check">✓</span><div><strong>Gráficos</strong><span>Transforme números em representações visuais mais fáceis de interpretar.</span></div></div>
+          <div class="lesson"><span class="check">✓</span><div><strong>Recursos avançados</strong><span>Aprofunde seus conhecimentos e ganhe mais domínio sobre a ferramenta.</span></div></div>
+          <div class="lesson"><span class="check">✓</span><div><strong>Macros</strong><span>Conheça possibilidades de automação apresentadas no conteúdo avançado do curso.</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="para-quem">
+      <div class="wrap audience">
+        <div>
+          <span class="eyebrow">Para quem é</span>
+          <h2>Aprenda no seu nível e evolua passo a passo.</h2>
+          <p style="color:var(--muted)">O treinamento pode ser interessante tanto para quem está começando quanto para quem já utiliza planilhas e quer ampliar seus conhecimentos.</p>
+          <div class="ticks">
+            <div class="tick"><span class="check">✓</span><span>Quem está começando a utilizar o Excel.</span></div>
+            <div class="tick"><span class="check">✓</span><span>Profissionais que utilizam planilhas no trabalho.</span></div>
+            <div class="tick"><span class="check">✓</span><span>Quem quer organizar melhor dados e informações.</span></div>
+            <div class="tick"><span class="check">✓</span><span>Quem deseja avançar em fórmulas, gráficos e outros recursos.</span></div>
+          </div>
+          <a class="btn affiliate-link" href="#" rel="nofollow sponsored">Ver conteúdo e condições →</a>
+        </div>
+
+        <aside class="panel">
+          <h3>Aprenda no seu ritmo.</h3>
+          <p>
+            O formato online permite acessar o conteúdo conforme sua disponibilidade. Consulte na página oficial
+            todas as informações atualizadas sobre módulos, certificado, acesso, preço, garantia e formas de pagamento.
+          </p>
+          <a class="btn affiliate-link" href="#" rel="nofollow sponsored" style="margin-top:8px">Ver o curso por dentro →</a>
+        </aside>
+      </div>
+    </section>
+
+
+
+    <section>
+      <div class="wrap">
+        <div class="trustbox">
+          <div class="score">
+            <div class="big">4,8</div>
+            <div class="stars">★★★★★</div>
+            <small>Avaliação pública exibida na Hotmart*</small>
+          </div>
+          <div class="trustcopy">
+            <span class="eyebrow">Prova social verificável</span>
+            <h3>Não precisa acreditar apenas nesta página.</h3>
+            <p>Consulte a própria página da oferta na Hotmart para conferir a avaliação, informações do treinamento e as condições atuais antes de decidir.</p>
+            <a class="btn affiliate-link" href="#" rel="nofollow sponsored">Ver avaliações e oferta →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="soft" id="depoimentos">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Experiências ilustrativas</span>
+          <h2>O tipo de resultado de aprendizado que um treinamento de Excel busca desenvolver.</h2>
+          <p>Os textos abaixo são exemplos editoriais de situações de aprendizagem e não são avaliações de compradores reais.</p>
+        </div>
+        <div class="reviews-wrap">
+          <article class="review-card">
+            <div class="review-top"><div class="avatar">MS</div><div><span class="review-name">Mariana S.</span><span class="review-label">EXEMPLO ILUSTRATIVO</span></div></div>
+            <div class="stars">★★★★★</div>
+            <p>“Um curso estruturado pode ajudar quem começa do zero a entender melhor fórmulas e organizar planilhas com mais segurança.”</p>
+          </article>
+          <article class="review-card">
+            <div class="review-top"><div class="avatar">CM</div><div><span class="review-name">Carlos M.</span><span class="review-label">EXEMPLO ILUSTRATIVO</span></div></div>
+            <div class="stars">★★★★★</div>
+            <p>“Aprender funções e gráficos de forma sequencial pode tornar tarefas que antes pareciam complicadas muito mais compreensíveis.”</p>
+          </article>
+          <article class="review-card">
+            <div class="review-top"><div class="avatar">JF</div><div><span class="review-name">Joana F.</span><span class="review-label">EXEMPLO ILUSTRATIVO</span></div></div>
+            <div class="stars">★★★★★</div>
+            <p>“Ter uma sequência do básico ao avançado pode evitar ficar pulando entre tutoriais sem construir uma base sólida.”</p>
+          </article>
+          <article class="review-card">
+            <div class="review-top"><div class="avatar">RP</div><div><span class="review-name">Rafael P.</span><span class="review-label">EXEMPLO ILUSTRATIVO</span></div></div>
+            <div class="stars">★★★★★</div>
+            <p>“Para quem utiliza planilhas no trabalho, desenvolver domínio sobre funções e organização de dados pode fazer bastante diferença.”</p>
+          </article>
+          <article class="review-card">
+            <div class="review-top"><div class="avatar">AL</div><div><span class="review-name">Amanda L.</span><span class="review-label">EXEMPLO ILUSTRATIVO</span></div></div>
+            <div class="stars">★★★★★</div>
+            <p>“Começar pelos fundamentos e depois avançar para gráficos e outros recursos é uma forma mais organizada de aprender.”</p>
+          </article>
+          <article class="review-card">
+            <div class="review-top"><div class="avatar">GS</div><div><span class="review-name">Gabriel S.</span><span class="review-label">EXEMPLO ILUSTRATIVO</span></div></div>
+            <div class="stars">★★★★★</div>
+            <p>“O objetivo é conseguir olhar para uma planilha e saber por onde começar, em vez de depender de tentativa e erro.”</p>
+          </article>
+        </div>
+        <p class="illustrative-note">Importante: nomes e textos desta seção são exemplos ilustrativos criados para demonstrar possíveis contextos de aprendizagem. Para prova social real, consulte as avaliações públicas da oferta na Hotmart.</p>
+        <div class="inline-cta">
+          <strong>Quer conferir a prova social real?</strong>
+          <a class="btn affiliate-link pulse" href="#" rel="nofollow sponsored">Ver avaliações na oferta oficial →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="conversion-band">
+      <div class="wrap conversion-grid">
+        <div>
+          <span class="eyebrow">Comece pelo próximo passo</span>
+          <h2>Quanto tempo você ainda quer perder fazendo no braço o que uma planilha pode organizar?</h2>
+          <p>Excel é uma ferramenta prática. Quanto antes você domina os fundamentos, mais cedo consegue aplicar fórmulas, organização e análise de dados nas suas próprias tarefas.</p>
+        </div>
+        <div class="conversion-box">
+          <div class="conversion-item"><span>01</span><div><strong>Veja o conteúdo</strong><small>Confira os módulos e o que está incluído.</small></div></div>
+          <div class="conversion-item"><span>02</span><div><strong>Confira as condições</strong><small>Preço e pagamento aparecem na página oficial.</small></div></div>
+          <div class="conversion-item"><span>03</span><div><strong>Comece a estudar</strong><small>Acesse o treinamento conforme as regras da oferta.</small></div></div>
+          <a class="btn affiliate-link full" href="#" rel="nofollow sponsored">Quero conhecer o treinamento →</a>
+        </div>
+      </div>
+    </section>
+
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Ainda em dúvida?</span>
+          <h2>As objeções mais comuns, respondidas.</h2>
+          <p>Confira os pontos principais e consulte os detalhes atuais na página oficial antes da compra.</p>
+        </div>
+        <div class="objection-grid">
+          <div class="objection"><div class="q">“Estou começando do zero.”</div><p>O treinamento é apresentado do básico ao avançado, permitindo começar pelos fundamentos antes de evoluir.</p></div>
+          <div class="objection"><div class="q">“Tenho pouco tempo.”</div><p>Por ser online, você pode organizar seus estudos conforme sua disponibilidade e condições de acesso da oferta.</p></div>
+          <div class="objection"><div class="q">“Quero aprender além do básico.”</div><p>O conteúdo divulgado inclui fórmulas, funções, gráficos e tópicos avançados, incluindo macros.</p></div>
+        </div>
+        <div class="inline-cta">
+          <strong>O próximo passo é simplesmente conhecer o conteúdo completo.</strong>
+          <a class="btn affiliate-link pulse" href="#" rel="nofollow sponsored">Sim, quero conhecer o curso →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="soft" id="faq">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow">Perguntas frequentes</span>
+          <h2>Tire suas principais dúvidas.</h2>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>O curso é online?</summary>
+            <p>Sim. A oferta é apresentada como um curso online. Consulte a página oficial para verificar as condições atuais de acesso.</p>
+          </details>
+          <details>
+            <summary>É indicado para iniciantes?</summary>
+            <p>O conteúdo é apresentado do nível básico ao avançado, permitindo que iniciantes construam uma base antes de avançar.</p>
+          </details>
+          <details>
+            <summary>Tem certificado?</summary>
+            <p>A oferta informa certificado. Consulte a página oficial antes da compra para conferir regras, requisitos e condições atualizadas.</p>
+          </details>
+          <details>
+            <summary>Por quanto tempo tenho acesso?</summary>
+            <p>A oferta informa acesso vitalício. Confirme essa condição na página oficial, pois características comerciais podem ser alteradas pelo produtor.</p>
+          </details>
+          <details>
+            <summary>Qual é o preço?</summary>
+            <p>Preço, parcelamento, eventuais descontos e formas de pagamento podem mudar. Clique em “Consultar a oferta” para visualizar as condições atuais diretamente na página oficial.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+
+    <section>
+      <div class="wrap">
+        <div class="decision">
+          <div>
+            <h2>Você pode continuar adiando — ou pode começar a desenvolver essa habilidade.</h2>
+            <p>Conheça o treinamento, veja os módulos e confira preço, pagamento e demais condições atuais diretamente na oferta oficial.</p>
+            <div class="mini-trust"><span>✓ Treinamento online</span><span>✓ Do básico ao avançado</span><span>✓ Certificado informado*</span></div>
+          </div>
+          <a class="btn affiliate-link pulse" href="#" rel="nofollow sponsored">QUERO APRENDER EXCEL →</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="cta">
+          <h2>Pronto para desenvolver suas habilidades no Excel?</h2>
+          <p>Veja todos os detalhes do treinamento e consulte as condições atuais diretamente na página oficial da oferta.</p>
+          <a class="btn affiliate-link" href="#" rel="nofollow sponsored">Quero aprender Excel →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-grid">
+      <div class="disclaimer">
+        <strong>Transparência:</strong> esta é uma página informativa independente e pode conter link de afiliado.
+        Caso uma compra seja realizada por esse link, esta página poderá receber uma comissão, sem custo adicional ao comprador.
+        Marcas e nomes de produtos pertencem aos seus respectivos proprietários. Consulte sempre a página oficial da oferta
+        para confirmar preço, conteúdo, garantia, certificado e demais condições antes da compra.
+      </div>
+      <div>© <span id="year"></span> Excel na Prática</div>
+    </div>
+  </footer>
+
+
+
+  <div class="sticky-sale">
+    <div>
+      <strong>★★★★★ 4,8/5 na Hotmart*</strong>
+      <small>Conheça o treinamento completo.</small>
+    </div>
+    <a class="btn affiliate-link pulse" href="#" rel="nofollow sponsored">Ver curso →</a>
+  </div>
+
+  <div class="proof-toast" id="proofToast" aria-live="polite">
+    <div class="proof-badge">✓</div>
+    <div>
+      <strong id="proofTitle">Curso do básico ao avançado</strong>
+      <span id="proofText">Veja os detalhes e condições na página oficial.</span>
+    </div>
+  </div>
+
+  <a class="btn mobile-cta affiliate-link" href="#" rel="nofollow sponsored">Quero conhecer o curso →</a>
+
+
+  <div class="mobile-cta-wrap">
+    <a class="btn affiliate-link pulse" href="#" rel="nofollow sponsored">QUERO CONHECER O CURSO →</a>
+    <small>Consulte preço e condições atuais na página oficial</small>
+  </div>
+
+  <div class="exit-modal" id="exitModal" aria-hidden="true">
+    <div class="exit-card">
+      <button class="exit-close" id="exitClose" aria-label="Fechar">×</button>
+      <span class="eyebrow">Antes de sair</span>
+      <h2>Quer mesmo continuar travando no Excel?</h2>
+      <p>Veja o conteúdo completo do treinamento e decida com todas as informações em mãos.</p>
+      <div class="stars">★★★★★</div>
+      <strong>4,8/5 na Hotmart*</strong>
+      <a class="btn affiliate-link pulse" href="#" rel="nofollow sponsored">VER O TREINAMENTO →</a>
+      <small>*Avaliação pública exibida na plataforma. Consulte os dados atuais na oferta oficial.</small>
+    </div>
+  </div>
+
+  <script>
+    /*
+      ==============================================================
+      TROQUE SOMENTE O LINK ABAIXO PELO SEU HOTLINK DA HOTMART.
+      Exemplo: const AFFILIATE_URL = "https://go.hotmart.com/SEUCODIGO";
+      Todos os botões da página serão atualizados automaticamente.
+      ==============================================================
+    */
+    const AFFILIATE_URL = "COLE_AQUI_SEU_LINK_DE_AFILIADO";
+
+    document.querySelectorAll(".affiliate-link").forEach(function(link) {
+      link.href = AFFILIATE_URL;
+      link.target = "_blank";
+      link.rel = "nofollow sponsored noopener";
+    });
+
+
+    const proofMessages = [
+      ["★★★★★ 4,8/5 na Hotmart", "Avaliação pública exibida na plataforma."],
+      ["Mariana S. • exemplo", "“Evoluir do básico para fórmulas pode tornar o aprendizado mais organizado.”"],
+      ["Carlos M. • exemplo", "“Entender funções e gráficos pode facilitar bastante o trabalho com planilhas.”"],
+      ["Joana F. • exemplo", "“Uma sequência estruturada pode ajudar a construir uma base mais sólida.”"],
+      ["Rafael P. • exemplo", "“Dominar organização de dados pode ser útil no trabalho cotidiano.”"],
+      ["Amanda L. • exemplo", "“Começar pelos fundamentos antes de avançar ajuda a entender melhor a ferramenta.”"],
+      ["Gabriel S. • exemplo", "“O objetivo é sair da tentativa e erro e entender melhor o que está fazendo.”"],
+      ["Do básico ao avançado", "Conheça os módulos e recursos apresentados na oferta."],
+      ["Certificado informado", "Confira as condições atuais diretamente na página oficial."],
+      ["Acesso vitalício informado", "Consulte os detalhes atuais antes da compra."],
+      ["Fórmulas, funções e gráficos", "Veja o conteúdo completo do treinamento."],
+      ["Quer evoluir no Excel?", "Conheça agora a proposta completa do curso."]
+    ];
+    let proofIndex = 0;
+    const toast = document.getElementById("proofToast");
+    const proofTitle = document.getElementById("proofTitle");
+    const proofText = document.getElementById("proofText");
+
+    function showProof() {
+      const msg = proofMessages[proofIndex % proofMessages.length];
+      proofTitle.textContent = msg[0];
+      proofText.textContent = msg[1];
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 4500);
+      proofIndex++;
+    }
+    setTimeout(showProof, 3500);
+    setInterval(showProof, 11000);
+
+
+    // Exit-intent: shown once per browser session on desktop.
+    const exitModal = document.getElementById("exitModal");
+    const exitClose = document.getElementById("exitClose");
+    let exitShown = sessionStorage.getItem("excelExitShown") === "1";
+
+    document.addEventListener("mouseout", function(e) {
+      if (!exitShown && e.clientY <= 5 && window.innerWidth > 700) {
+        exitShown = true;
+        sessionStorage.setItem("excelExitShown", "1");
+        exitModal.classList.add("open");
+        exitModal.setAttribute("aria-hidden","false");
+      }
+    });
+    exitClose.addEventListener("click", function(){
+      exitModal.classList.remove("open");
+      exitModal.setAttribute("aria-hidden","true");
+    });
+    exitModal.addEventListener("click", function(e){
+      if(e.target === exitModal) exitClose.click();
+    });
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
